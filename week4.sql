@@ -41,3 +41,8 @@ INNER JOIN departments AS d
 ON e.department_id = d.department_id
 GROUP BY d.department_name
 HAVING COUNT(e.employee_id) > 2;
+
+-- Finding employees whose salary is above the company's average salary
+SELECT first_name, last_name, salary
+FROM employees
+WHERE salary > (SELECT AVG(salary) FROM employees);
