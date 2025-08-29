@@ -28,3 +28,16 @@ ON e.department_id = d.department_id;
 SELECT first_name, last_name
 FROM employees
 WHERE last_name LIKE 'S%';
+
+-- Counting the number of employees in each department
+SELECT department_id, COUNT(*) AS num_employees
+FROM employees
+GROUP BY department_id
+
+-- Finding departments with more than 2 employees and the total salary for each
+SELECT d.department_name, COUNT(e.employee_id) AS num_employees, SUM(e.salary) AS total_salary
+FROM employees AS e
+INNER JOIN departments AS d
+ON e.department_id = d.department_id
+GROUP BY d.department_name
+HAVING COUNT(e.employee_id) > 2;
