@@ -23,3 +23,8 @@ SELECT e.first_name, e.last_name, d.department_name
 FROM employees AS e
 INNER JOIN departments AS d
 ON e.department_id = d.department_id;
+
+-- Finding all employees with a last name that starts with 'S'
+SELECT first_name, last_name
+FROM employees
+WHERE last_name LIKE 'S%';
