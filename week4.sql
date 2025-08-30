@@ -46,3 +46,5 @@ HAVING COUNT(e.employee_id) > 2;
 SELECT first_name, last_name, salary
 FROM employees
 WHERE salary > (SELECT AVG(salary) FROM employees);
+
+
